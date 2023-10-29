@@ -2349,10 +2349,10 @@ class UTF8
             #charset_from
             if ($charset_from === 'UTF-16' || $charset_from === 'UCS-2')  return self::_convert_from_utf16($data);
             if ($charset_from === 'cp1251' || $charset_from === 'cp1259') return strtr($data, self::$cp1259_table);
-            if ($charset_from === 'koi8-r' || $charset_from === 'KOI8-R') return strtr(convert_cyr_string($data, 'k', 'w'), self::$cp1259_table);
-            if ($charset_from === 'iso8859-5') return strtr(convert_cyr_string($data, 'i', 'w'), self::$cp1259_table);
-            if ($charset_from === 'cp866') return strtr(convert_cyr_string($data, 'a', 'w'), self::$cp1259_table);
-            if ($charset_from === 'mac-cyrillic') return strtr(convert_cyr_string($data, 'm', 'w'), self::$cp1259_table);
+            if ($charset_from === 'koi8-r' || $charset_from === 'KOI8-R') return strtr(mb_convert_encoding($data, 'w', 'k'), self::$cp1259_table);
+            if ($charset_from === 'iso8859-5') return strtr(mb_convert_encoding($data, 'w', 'i'), self::$cp1259_table);
+            if ($charset_from === 'cp866') return strtr(mb_convert_encoding($data, 'w', 'a'), self::$cp1259_table);
+            if ($charset_from === 'mac-cyrillic') return strtr(mb_convert_encoding($data, 'w', 'm'), self::$cp1259_table);
             #charset_to
             if ($charset_to === 'cp1251' || $charset_to === 'cp1259') return strtr($data, array_flip(self::$cp1259_table));
             #last trying
