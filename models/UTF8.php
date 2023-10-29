@@ -70,15 +70,15 @@ class UTF8
      * @deprecated  Instead, use a dot (".") and the flag /u, it works faster!
      * @var string
      */
-    public static $char_re = '  [\x09\x0A\x0D\x20-\x7E]           # ASCII strict
-                              # [\x00-\x7F]                       # ASCII non-strict (including control chars)
-                              | [\xC2-\xDF][\x80-\xBF]            # non-overlong 2-byte
-                              |  \xE0[\xA0-\xBF][\x80-\xBF]       # excluding overlongs
-                              | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2} # straight 3-byte
-                              |  \xED[\x80-\x9F][\x80-\xBF]       # excluding surrogates
-                              |  \xF0[\x90-\xBF][\x80-\xBF]{2}    # planes 1-3
-                              | [\xF1-\xF3][\x80-\xBF]{3}         # planes 4-15
-                              |  \xF4[\x80-\x8F][\x80-\xBF]{2}    # plane 16
+    public static $char_re = '  [\x09\x0A\x0D\x20-\x7E] 
+                              # [\x00-\x7F]                       
+                              | [\xC2-\xDF][\x80-\xBF]            
+                              |  \xE0[\xA0-\xBF][\x80-\xBF]       
+                              | [\xE1-\xEC\xEE\xEF][\x80-\xBF]{2} 
+                              |  \xED[\x80-\x9F][\x80-\xBF]      
+                              |  \xF0[\x90-\xBF][\x80-\xBF]{2}    
+                              | [\xF1-\xF3][\x80-\xBF]{3}         
+                              |  \xF4[\x80-\x8F][\x80-\xBF]{2}  
                              ';
     /**
      * Combining diactrical marks (Unicode 5.1).
@@ -92,10 +92,10 @@ class UTF8
      * @var  string
      */
     #public static $diactrical_re = '\p{M}'; #alternative, but only with /u flag
-    public static $diactrical_re = '  \xcc[\x80-\xb9]|\xcd[\x80-\xaf]  #UNICODE range: U+0300 — U+036F (for letters)
-                                    | \xe2\x83[\x90-\xbf]              #UNICODE range: U+20D0 — U+20FF (for symbols)
-                                    | \xe1\xb7[\x80-\xbf]              #UNICODE range: U+1DC0 — U+1DFF (supplement)
-                                    | \xef\xb8[\xa0-\xaf]              #UNICODE range: U+FE20 — U+FE2F (combining half marks)
+    public static $diactrical_re = '  \xcc[\x80-\xb9]|\xcd[\x80-\xaf] 
+                                    | \xe2\x83[\x90-\xbf]             
+                                    | \xe1\xb7[\x80-\xbf]             
+                                    | \xef\xb8[\xa0-\xaf]             
                                    ';
     /**
      * @var  array
